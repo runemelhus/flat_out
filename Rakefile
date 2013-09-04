@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "flat_out"
   gem.homepage = "http://github.com/aksharma/flat_out"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Generates flat files"
+  gem.description = "Generates flat files"
   gem.email = "sharma.ruby1git@sharmail.com"
   gem.authors = ["Anil Sharma"]
   # dependencies defined in Gemfile
