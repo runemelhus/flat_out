@@ -1,6 +1,6 @@
 class FlatOut
 
-  #attr_accessor :flat_out, :flat_length, :base, :format, :template
+  #attr_accessor :flat_out, :flat_length, :base, :format, :template, :numeric_padding
 
   def initialize(rec_length, options = {})
     self.reset(rec_length, options)
@@ -12,6 +12,7 @@ class FlatOut
     @template = options[:template] ||= @template ||= []
     @flat_length = rec_length
     @flat_out = ' ' * rec_length
+    @numeric_padding = options[:numeric_padding] ||= @numeric_padding ||= '0'
     return @flat_out
   end
 
@@ -108,7 +109,7 @@ class FlatOut
   def put_integer(len, pos, fld)
     data_content = fld.to_i.to_s
     data_len = data_content.length
-    zero_fill = '0' * len
+    zero_fill = @numeric_padding * len
     val = (zero_fill + data_content)[-len,len]
     put_fld len, pos, val
   end

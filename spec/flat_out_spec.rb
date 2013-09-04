@@ -60,6 +60,18 @@ describe "put whole record specified in an array with fld_len format" do
   end
 end
 
+describe "put whole record specified in an array with fld_len format but pad with spaces" do
+  it "should build the format sequentially and pad with spaces" do
+    f = FlatOut.new(21, :format => :fld_len, :numeric_padding => ' ')
+    val = ['ABCD', 5,
+            10,    5,
+           10.23,  4.2,
+           'EFG',  3]
+    f.put(val)
+    f.to_s.should == 'ABCD    10  10.23EFG '
+  end
+end
+
 describe "put whole record specified in an array with len_fld format" do
   it "should build the format sequentially" do
     f = FlatOut.new(21, :format => :len_fld)
